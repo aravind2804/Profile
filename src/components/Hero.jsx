@@ -88,7 +88,7 @@ function Hero() {
        {/* ── Your Profile Photo ── */}
 <div className="dev-card">
   <div className="profile-img-wrap">
-    <img src="src/public/profile.JPG" alt="Aravind" className="profile-img" />
+    <img src="profile.JPG" alt="Aravind" className="profile-img" />
   </div>
 </div>
 

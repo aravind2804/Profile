@@ -1,0 +1,43 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== CSS VARIABLES (Color Palette) ===== */
+:root {
+  --bg-main: #080c14;          /* Very dark navy - page background */
+  --bg-card: #0d1220;          /* Dark card background */
+  --bg-card2: #111827;         /* Slightly lighter card */
+  --border: #1e2d45;           /* Subtle border color */
+  --border-hover: #7c3aed;     /* Purple border on hover */
+
+  --purple: #7c3aed;           /* Main purple */
+  --purple-light: #a855f7;     /* Lighter purple */
+  --purple-glow: rgba(124, 58, 237, 0.35);
+
+  --text-white: #f1f5f9;       /* Primary text */
+  --text-gray: #94a3b8;        /* Secondary text */
+  --text-dim: #64748b;         /* Muted text */
+
+  --font: 'Poppins', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg-main);
+  color: var(--text-white);
+  min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: var(--font); cursor: pointer; border: none; outline: none; }
+ul { list-style: none; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 3px; }

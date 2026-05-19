@@ -1,0 +1,12 @@
+/* ===== APP WRAPPER ===== */
+.app-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 0 16px;
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+  .app-wrapper { padding: 0 0 12px; }
+}

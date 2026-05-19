@@ -1,0 +1,246 @@
+/* ===== ABOUT + SKILLS ROW ===== */
+/* Two cards side by side */
+.about-skills-row {
+  display: flex;
+  gap: 14px;
+  margin: 0 14px 14px;
+}
+
+/* ── Shared Card Styles ── */
+.about-card,
+.skills-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+}
+
+/* Title row (icon + heading) */
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* Small icon box */
+.icon-box {
+  width: 42px;
+  height: 42px;
+  background: rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Section headings */
+.card-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+/* ── ABOUT CARD ── */
+.about-card {
+  flex: 1;
+  min-width: 240px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bio paragraph */
+.about-text {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--text-gray);
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+/* Read More button */
+.read-more-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-white);
+  font-size: 13px;
+  font-weight: 600;
+  width: fit-content;
+  transition: all 0.2s;
+}
+.read-more-btn:hover {
+  border-color: var(--purple);
+  color: var(--purple-light);
+}
+
+/* Decorative </> icon bottom-right */
+.deco-code {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 68px;
+  height: 68px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+}
+
+/* ── SKILLS CARD ── */
+.skills-card {
+  flex: 2;
+}
+
+/* 4-column grid for skill icons */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Individual skill box */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 10px;
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: all 0.25s;
+  cursor: default;
+}
+.skill-item:hover {
+  border-color: rgba(124,58,237,0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(124,58,237,0.12);
+}
+
+/* Icon wrapper */
+.skill-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.2);
+  border-radius: 12px;
+}
+
+/* Skill label */
+.skill-name {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-gray);
+  text-align: center;
+}
+
+/* ── TABLET (max 768px) ── */
+@media (max-width: 768px) {
+  .about-skills-row {
+    flex-direction: column;
+    margin: 0 10px 12px;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .about-card {
+    min-width: unset;
+  }
+  .deco-code {
+    width: 56px;
+    height: 56px;
+    font-size: 18px;
+    border-radius: 14px;
+  }
+}
+
+/* ── MOBILE (max 480px) ── */
+@media (max-width: 480px) {
+  .about-skills-row { margin: 0 10px 12px; }
+  .about-card, .skills-card { padding: 22px 18px; }
+  .skills-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .skill-item { padding: 14px 6px; }
+  .skill-icon { width: 44px; height: 44px; }
+  .skill-name { font-size: 10px; }
+  .about-text { font-size: 13px; }
+}
+
+/* ── VERY SMALL (max 360px) ── */
+@media (max-width: 360px) {
+  .skills-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .skill-item  { padding: 10px 4px; }
+  .skill-icon  { width: 36px; height: 36px; }
+}
+/* ── Current Company Badge ── */
+.about-company {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 4px;
+}
+
+.company-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22c55e;           /* green = active/online */
+  box-shadow: 0 0 8px #22c55e;
+  flex-shrink: 0;
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 6px #22c55e; }
+  50%       { box-shadow: 0 0 14px #22c55e; }
+}
+
+.company-label {
+  display: block;
+  font-size: 10px;
+  color: var(--text-dim);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.company-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--purple-light);
+}
+
+/* ── Bullet Points ── */
+.about-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0;
+}
+
+.about-points li {
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.5;
+}

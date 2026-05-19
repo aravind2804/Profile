@@ -1,0 +1,79 @@
+/* ===== FOOTER ===== */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  margin: 0 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+/* Logo + name */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--purple), var(--purple-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+}
+.footer-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+/* Copyright */
+.footer-copy {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* Scroll to top circle button */
+.scroll-top-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  color: var(--text-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.scroll-top-btn:hover {
+  border-color: var(--purple);
+  color: var(--purple-light);
+  box-shadow: 0 0 12px var(--purple-glow);
+}
+
+/* ── MOBILE (max 480px) ── */
+@media (max-width: 480px) {
+  .footer {
+    margin: 0 10px;
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  .footer-copy {
+    width: 100%;
+    text-align: center;
+    order: 3;
+    font-size: 12px;
+  }
+  .footer-left  { order: 1; }
+  .scroll-top-btn { order: 2; }
+}

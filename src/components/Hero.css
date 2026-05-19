@@ -1,0 +1,353 @@
+/* ===== HERO SECTION ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 48px 44px 44px;
+  margin: 0 14px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  min-height: 460px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background gradient */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: 80px;
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+/* ── LEFT SIDE ── */
+.hero-left {
+  flex: 1;
+  max-width: 400px;
+  z-index: 2;
+}
+
+/* "Hello, I'm" pill badge */
+.hello-tag {
+  display: inline-block;
+  padding: 5px 14px;
+  border: 1px solid rgba(124,58,237,0.4);
+  background: rgba(124,58,237,0.08);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-gray);
+  margin-bottom: 14px;
+}
+
+/* Big gradient name */
+.hero-name {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 6px;
+  background: linear-gradient(135deg, #d8b4fe 0%, #a855f7 50%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Purple subtitle */
+.hero-role {
+  font-size: 24px;
+  font-weight: 700;
+  color: #a855f7;
+  margin-bottom: 16px;
+}
+
+/* Description text */
+.hero-desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-gray);
+  margin-bottom: 28px;
+}
+
+/* Buttons row */
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+/* Filled purple button */
+.btn-purple {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.25s;
+  box-shadow: 0 4px 20px var(--purple-glow);
+}
+.btn-purple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px var(--purple-glow);
+}
+
+/* Outline button */
+.btn-outline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-white);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.25s;
+}
+.btn-outline:hover {
+  border-color: var(--purple);
+  color: var(--purple-light);
+}
+
+/* Social icons row */
+.hero-socials {
+  display: flex;
+  gap: 10px;
+}
+.social-btn {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-gray);
+  transition: all 0.2s;
+}
+.social-btn:hover {
+  border-color: var(--purple);
+  color: var(--purple-light);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px var(--purple-glow);
+}
+
+/* ── RIGHT SIDE ── */
+.hero-right {
+  flex: 1;
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Big glowing ring behind avatar */
+.glow-ring {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  /* Gradient border effect */
+  background: 
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    linear-gradient(135deg, rgba(168,85,247,0.7), rgba(236,72,153,0.5), transparent 60%) border-box;
+  border: 2px solid transparent;
+  box-shadow: 
+    0 0 60px rgba(124,58,237,0.3),
+    inset 0 0 40px rgba(124,58,237,0.05);
+}
+
+/* Developer card in center */
+.dev-card {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Avatar placeholder area */
+.dev-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Laptop mockup */
+.laptop {
+  width: 200px;
+  position: relative;
+}
+.laptop-screen {
+  background: #0a0f1e;
+  border: 2px solid #2a3050;
+  border-radius: 8px 8px 0 0;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-height: 110px;
+}
+.code-line {
+  height: 5px;
+  border-radius: 3px;
+  animation: blink 2.5s ease-in-out infinite;
+}
+.code-line:nth-child(2) { animation-delay: 0.3s; }
+.code-line:nth-child(3) { animation-delay: 0.6s; }
+.code-line:nth-child(4) { animation-delay: 0.9s; }
+.code-line:nth-child(5) { animation-delay: 1.2s; }
+@keyframes blink {
+  0%,100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* </> symbol on laptop bottom half */
+.laptop-code {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: 800;
+  font-family: monospace;
+  color: var(--purple-light);
+  text-shadow: 0 0 20px var(--purple-light);
+}
+
+/* Developer body shape below laptop */
+.dev-body-shape {
+  width: 210px;
+  height: 10px;
+  background: #1a1a2e;
+  border-radius: 0 0 8px 8px;
+  border: 1.5px solid #2a3050;
+  border-top: none;
+}
+
+/* Floating {} and </> boxes */
+.float-box {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--purple-light);
+  z-index: 4;
+}
+.top-right  { top: 20px; right: 10px; animation: floatY 3s ease-in-out infinite; }
+.bottom-right { bottom: 40px; right: 5px; animation: floatY 3s ease-in-out infinite 1.5s; }
+
+@keyframes floatY {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* Star sparkles */
+.sparkle {
+  position: absolute;
+  color: rgba(168,85,247,0.7);
+  pointer-events: none;
+}
+.s1 { top: 30px; left: 30px; font-size: 14px; animation: twinkle 2s ease-in-out infinite; }
+.s2 { top: 20px; right: 80px; font-size: 10px; animation: twinkle 2s ease-in-out infinite 0.7s; }
+.s3 { bottom: 60px; left: 40px; font-size: 18px; animation: twinkle 2s ease-in-out infinite 1.4s; }
+@keyframes twinkle {
+  0%,100% { opacity: 0.3; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.4); }
+}
+
+/* ── TABLET (max 768px) ── */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 32px 24px 36px;
+    margin: 0 10px 12px;
+    min-height: unset;
+    text-align: center;
+    align-items: center;
+  }
+  .hero-left {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-name { font-size: 54px; }
+  .hero-role { font-size: 20px; }
+  .hero-desc { font-size: 13.5px; max-width: 340px; text-align: center; }
+  .hero-btns { justify-content: center; }
+  .hero-socials { justify-content: center; }
+  .hero-right { width: 100%; min-height: 260px; }
+  .glow-ring  { width: 220px; height: 220px; }
+  .laptop { width: 160px; }
+  .laptop-screen { min-height: 85px; }
+  .laptop-code { font-size: 22px; }
+  .dev-body-shape { width: 170px; }
+  .float-box { width: 44px; height: 44px; font-size: 15px; }
+  .top-right  { top: 10px; right: 20px; }
+  .bottom-right { bottom: 20px; right: 15px; }
+}
+
+/* ── MOBILE (max 480px) ── */
+@media (max-width: 480px) {
+  .hero { padding: 24px 16px 28px; }
+  .hero-name { font-size: 42px; }
+  .hero-role { font-size: 17px; }
+  .btn-purple, .btn-outline { padding: 10px 16px; font-size: 13px; }
+  .hero-right { min-height: 210px; }
+  .glow-ring  { width: 170px; height: 170px; }
+  .laptop { width: 120px; }
+  .laptop-screen { min-height: 65px; padding: 8px; }
+  .dev-body-shape { width: 130px; }
+}
+/* ── Profile Photo ── */
+.profile-img-wrap {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #7c3aed, #ec4899, #a855f7);
+  box-shadow:
+    0 0 40px rgba(124, 58, 237, 0.5),
+    0 0 80px rgba(124, 58, 237, 0.2);
+  z-index: 3;
+  position: relative;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit:contain;        /* crops nicely to fill the circle */
+  object-position: top;     /* focuses on face — change to 'center' if needed */
+  border: 3px solid var(--bg-card);
+  display: block;
+}
+
+/* Mobile size */
+@media (max-width: 768px) {
+  .profile-img-wrap { width: 210px; height: 210px; }
+}
+@media (max-width: 480px) {
+  .profile-img-wrap { width: 180px; height: 180px; }
+}

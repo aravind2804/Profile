@@ -11,6 +11,10 @@ const DownloadIcon = () => (
 
 const NAV_LINKS = ['Home', 'About', 'Skills', 'Projects', 'Contact']
 
+// The PDF must be inside the "public" folder with exactly this name
+const RESUME_URL = '/Aravind_Babu_Resume.pdf'
+const RESUME_NAME = 'Aravind_Babu_Resume.pdf'
+
 function Navbar() {
   const [active, setActive] = useState('Home')
   const [menuOpen, setMenuOpen] = useState(false)
@@ -42,8 +46,15 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* Desktop Resume Button */}
-        <button className="resume-btn">Resume <DownloadIcon /></button>
+        {/* Desktop Resume Button - downloads the PDF */}
+        <a
+          className="resume-btn"
+          href={RESUME_URL}
+          download={RESUME_NAME}
+          style={{ textDecoration: 'none' }}
+        >
+          Resume <DownloadIcon />
+        </a>
 
         {/* Mobile Hamburger Icon */}
         <button className="nav-hamburger" onClick={() => setMenuOpen(true)} aria-label="Open menu">
@@ -65,7 +76,16 @@ function Navbar() {
               {link}
             </a>
           ))}
-          <button className="nav-mobile-resume">Resume <DownloadIcon /></button>
+          {/* Mobile Resume Button - downloads the PDF */}
+          <a
+            className="nav-mobile-resume"
+            href={RESUME_URL}
+            download={RESUME_NAME}
+            onClick={() => setMenuOpen(false)}
+            style={{ textDecoration: 'none' }}
+          >
+            Resume <DownloadIcon />
+          </a>
         </div>
       )}
     </>

@@ -117,7 +117,7 @@ function AboutSkills() {
         {/* Bio text */}
         {/* Bio text */}
 <p className="about-text">
-  🚀 Passionate Frontend Developer with <strong>1.2 years</strong> of hands-on experience
+  🚀 Passionate Frontend Developer with <strong>1.7 years</strong> of hands-on experience
   building clean, responsive, and user-friendly web apps.
 </p>
 

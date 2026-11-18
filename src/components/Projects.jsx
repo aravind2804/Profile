@@ -67,21 +67,29 @@ const PROJECTS = [
     isLive: true,
     type: 'Landing Page',
   },
-  // {
-  //   id: 3,
-  //   title: 'Next Project',
-  //   desc: 'Something exciting is in the works! Stay tuned for my next project — currently learning and building every day. 🚀',
-  //   tags: ['Coming Soon'],
-  //   emoji: '⚡',
-  //   previewColor: '#0ea5e9',
-  //   previewAccent: '#38bdf8',
-  //   previewBg: 'linear-gradient(135deg, #082f49 0%, #0c4a6e 60%, #075985 100%)',
-  //   previewLines: [],
-  //   demoLink: null,
-  //   githubLink: null,
-  //   isLive: false,
-  //   type: 'Coming Soon',
-  // },
+  {
+    id: 3,
+    title: 'POI Map',
+    desc: 'A desktop and web app to search places, drop pins by clicking the map or entering coordinates, and save locations with their address. Built with Flask, SQLite and Leaflet.',
+    tags: ['Python', 'Flask', 'SQLite', 'JavaScript'],
+    emoji: '📍',
+    previewColor: '#0ea5e9',   // blue theme
+    previewAccent: '#38bdf8',
+    previewBg: 'linear-gradient(135deg, #082f49 0%, #0c4a6e 60%, #075985 100%)',
+    previewLines: [
+      { w: '72%', bg: '#38bdf8' },
+      { w: '52%', bg: '#7dd3fc60' },
+      { w: '68%', bg: '#7dd3fc40' },
+      { w: '42%', bg: '#7dd3fc30' },
+    ],
+    // Paste your hosted link here (PythonAnywhere) or your GitHub Releases link.
+    // Leave '' to hide the demo button.
+    demoLink: '',
+    demoLabel: 'Live Demo',    // change to 'Download App' if demoLink is a Releases page
+    githubLink: 'https://github.com/aravind2804/poi_map',
+    isLive: true,
+    type: 'Web App',
+  },
 ]
 
 // ── Single Project Card ──
@@ -100,14 +108,17 @@ function ProjectCard({ project }) {
           <span className="dot yellow" />
           <span className="dot green" />
           <div className="preview-url">
-            {isComingSoon ? '🔒 coming-soon...' : project.demoLink?.replace('https://', '').slice(0, 28) + '...'}
+            {isComingSoon
+              ? '🔒 coming-soon...'
+              : project.demoLink
+                ? project.demoLink.replace('https://', '').slice(0, 28) + '...'
+                : project.title.toLowerCase().replace(/\s+/g, '-')}
           </div>
         </div>
 
         {/* Preview body */}
         <div className="preview-body">
           {isComingSoon ? (
-            // Coming soon placeholder
             <div className="coming-soon-preview">
               <div className="cs-emoji">⚡</div>
               <div className="cs-text">Coming Soon</div>
@@ -125,16 +136,18 @@ function ProjectCard({ project }) {
               {project.previewLines.map((line, i) => (
                 <div key={i} className="prev-line" style={{ width: line.w, background: line.bg }} />
               ))}
-              {/* View button */}
-              <a
-                href={project.demoLink}
-                target="_blank"
-                rel="noreferrer"
-                className="prev-view-btn"
-                style={{ background: `${project.previewColor}90`, borderColor: `${project.previewAccent}60`, color: project.previewAccent }}
-              >
-                View Live →
-              </a>
+              {/* View button (only when there is a live link) */}
+              {project.demoLink && (
+                <a
+                  href={project.demoLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="prev-view-btn"
+                  style={{ background: `${project.previewColor}90`, borderColor: `${project.previewAccent}60`, color: project.previewAccent }}
+                >
+                  {project.demoLabel || 'View Live'} →
+                </a>
+              )}
             </>
           )}
         </div>
@@ -170,12 +183,16 @@ function ProjectCard({ project }) {
         {/* Buttons */}
         {!isComingSoon && (
           <div className="project-btns">
-            <a href={project.demoLink} target="_blank" rel="noreferrer" className="proj-btn proj-btn-demo">
-              Live Demo <ExternalLinkIcon />
-            </a>
-            <a href={project.githubLink} target="_blank" rel="noreferrer" className="proj-btn">
-              GitHub <GithubIcon />
-            </a>
+            {project.demoLink && (
+              <a href={project.demoLink} target="_blank" rel="noreferrer" className="proj-btn proj-btn-demo">
+                {project.demoLabel || 'Live Demo'} <ExternalLinkIcon />
+              </a>
+            )}
+            {project.githubLink && (
+              <a href={project.githubLink} target="_blank" rel="noreferrer" className="proj-btn">
+                GitHub <GithubIcon />
+              </a>
+            )}
           </div>
         )}
 
@@ -202,8 +219,7 @@ function Projects() {
           <h3 className="card-title">My Projects</h3>
         </div>
         <div className="projects-count">
-          <span className="count-badge">2 Live</span>
-          {/* <span className="count-badge upcoming">+More Coming</span> */}
+          <span className="count-badge">{PROJECTS.filter(p => p.isLive).length} Live</span>
         </div>
       </div>
 

@@ -7,7 +7,7 @@
   margin: 0 14px 14px;
 }
 
-/* Header: title left, button right */
+/* Header: title left, count right */
 .projects-header {
   display: flex;
   align-items: center;
@@ -15,7 +15,6 @@
   margin-bottom: 22px;
 }
 
-/* Reuse from AboutSkills */
 .card-title-row {
   display: flex;
   align-items: center;
@@ -37,23 +36,15 @@
   color: var(--text-white);
 }
 
-/* "View All Projects" button */
-.view-all-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 18px;
-  background: transparent;
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  color: var(--text-white);
-  font-size: 13px;
+.count-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
   font-weight: 600;
-  transition: all 0.2s;
-}
-.view-all-btn:hover {
-  border-color: var(--purple);
-  color: var(--purple-light);
+  color: #4ade80;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.3);
 }
 
 /* Three equal columns */
@@ -115,7 +106,7 @@
   flex-direction: column;
   gap: 6px;
 }
-.prev-label {
+.prev-emoji-badge {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -126,13 +117,15 @@
   height: 4px;
   border-radius: 2px;
 }
-.prev-btn {
+.prev-view-btn {
   width: fit-content;
   padding: 4px 10px;
   border-radius: 6px;
+  border: 1px solid;
   font-size: 10px;
   font-weight: 600;
   margin-top: 4px;
+  text-decoration: none;
 }
 
 /* Soft glow blob */
@@ -149,17 +142,62 @@
 .project-info {
   padding: 16px;
 }
+.project-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 7px;
+}
 .project-title {
   font-size: 14.5px;
   font-weight: 700;
   color: var(--text-white);
-  margin-bottom: 7px;
+  margin: 0;
+}
+.badge-live,
+.badge-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+.badge-live {
+  color: #4ade80;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.3);
+}
+.badge-soon {
+  color: #fbbf24;
+  background: rgba(251,191,36,0.12);
+  border: 1px solid rgba(251,191,36,0.3);
 }
 .project-desc {
   font-size: 12.5px;
   line-height: 1.65;
   color: var(--text-gray);
+  margin-bottom: 12px;
+}
+
+/* Tech tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
   margin-bottom: 14px;
+}
+.proj-tag {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--purple-light);
+  background: rgba(124,58,237,0.1);
+  border: 1px solid rgba(124,58,237,0.25);
 }
 
 /* Live Demo / GitHub buttons */
@@ -178,6 +216,7 @@
   color: var(--text-gray);
   font-size: 12px;
   font-weight: 500;
+  text-decoration: none;
   transition: all 0.2s;
   font-family: var(--font);
 }
@@ -185,6 +224,17 @@
   border-color: var(--purple);
   color: var(--purple-light);
 }
+.proj-btn-demo {
+  background: rgba(124,58,237,0.15);
+  border-color: rgba(124,58,237,0.4);
+  color: var(--purple-light);
+}
+
+/* Coming soon (only used if a project has isLive: false) */
+.coming-soon-preview { text-align: center; padding-top: 8px; color: rgba(255,255,255,0.6); }
+.cs-emoji { font-size: 26px; }
+.cs-text { font-size: 12px; font-weight: 600; margin-top: 4px; }
+.coming-soon-msg { font-size: 12px; color: var(--text-gray); }
 
 /* ── TABLET (max 768px) ── */
 @media (max-width: 768px) {
@@ -204,5 +254,4 @@
   .projects-grid { grid-template-columns: 1fr; }
 
   .project-preview { height: 140px; }
-  .view-all-btn { font-size: 12px; padding: 8px 14px; }
 }

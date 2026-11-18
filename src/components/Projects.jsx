@@ -84,9 +84,9 @@ const PROJECTS = [
     ],
     // Paste your hosted link here (PythonAnywhere) or your GitHub Releases link.
     // Leave '' to hide the demo button.
-    demoLink: '',
+    demoLink: 'https://aravind2804.github.io/MAP_POI/',
     demoLabel: 'Live Demo',    // change to 'Download App' if demoLink is a Releases page
-    githubLink: 'https://github.com/aravind2804/poi_map',
+    githubLink: 'https://github.com/aravind2804/MAP_POI',
     isLive: true,
     type: 'Web App',
   },

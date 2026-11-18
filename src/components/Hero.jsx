@@ -36,7 +36,7 @@ function Hero() {
         <div className="hello-tag">Hello, I'm</div>
 
         {/* Big Name */}
-        <h1 className="hero-name">Aravind</h1>
+        <h1 className="hero-name">Aravind Babu</h1>
 
         {/* Job title */}
         <h2 className="hero-role">Frontend Developer</h2>
